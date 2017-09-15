@@ -18,6 +18,7 @@ import SectionNav from 'components/section-nav';
 import NavTabs from 'components/section-nav/tabs';
 import NavItem from 'components/section-nav/item';
 import Search from 'components/search';
+import AuthorSegmented from './author-segmented';
 
 const PostTypeFilter = React.createClass( {
 	mixins: [ UrlSearch ],
@@ -112,6 +113,11 @@ const PostTypeFilter = React.createClass( {
 							selectedText={ selectedItem.children }
 							selectedCount={ selectedItem.count }>
 							{ navItems.map( ( props ) => <NavItem { ...props } /> ) }
+							{ //showMyFilter &&
+								<AuthorSegmented
+									author={ query.author }
+									status={ query.status } />
+							}
 						</NavTabs>,
 						<Search
 							key="search"
